@@ -1,9 +1,9 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.adaptador.gateway;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AulaQueryRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query.AulaQueryRepository;
 
-public interface QueryRepository extends RepositoryGatewayFactory{
+public abstract class QueryRepository implements RepositoryGatewayFactory{
 	
-	AulaQueryRepository getAulaQueryRepository();
+	abstract AulaQueryRepository getAulaQueryRepository();
 
 }

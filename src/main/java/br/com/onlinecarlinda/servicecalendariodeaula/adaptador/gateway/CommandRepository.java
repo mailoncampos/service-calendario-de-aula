@@ -1,12 +1,12 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.adaptador.gateway;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AlunoCommandRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AulaCommandRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AlunoCommandRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AulaCommandRepository;
 
-public interface CommandRepository extends RepositoryGatewayFactory{
+public abstract class CommandRepository implements RepositoryGatewayFactory{
 
-	AlunoCommandRepository getAlunoCommandRepository();
+	abstract AlunoCommandRepository getAlunoCommandRepository();
 	
-	AulaCommandRepository getAulaCommandRepository();
+	abstract AulaCommandRepository getAulaCommandRepository();
 
 }

@@ -1,4 +1,4 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query;
 
 import java.time.LocalDate;
 import java.util.List;

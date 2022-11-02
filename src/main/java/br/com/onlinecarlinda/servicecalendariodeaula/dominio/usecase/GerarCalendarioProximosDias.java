@@ -8,13 +8,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AulaCommandRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AulaCommandRepository;
 
 @Component
 public class GerarCalendarioProximosDias {
 	
 	@Autowired
-	@Qualifier("AulaRepositoryDominio")
 	private AulaCommandRepository aulaRepository;
 	
 	public void gerar(List<Aula> aulas, LocalDate data) {

@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.AulaBuilder;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
@@ -20,7 +19,7 @@ import lombok.NonNull;
 @Table(schema = "dominio", name = "aula")
 @Getter
 @AllArgsConstructor
-public class AulaModel extends AulaBuilder implements Serializable{
+public class AulaCommand implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	

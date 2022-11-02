@@ -1,7 +1,7 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command.dto.CadastrarHorarioAulaDto;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.HorarioAulaCommandRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.HorarioAulaCommandRepository;
 
 
 public class CadastrarHorarioAula {

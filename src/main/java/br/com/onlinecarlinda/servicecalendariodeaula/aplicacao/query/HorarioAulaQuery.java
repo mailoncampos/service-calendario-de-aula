@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.HorarioAula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.HorarioAulaQueryRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query.HorarioAulaQueryRepository;
 
 public class HorarioAulaQuery {
 	

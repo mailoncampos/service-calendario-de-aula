@@ -11,17 +11,19 @@ import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.query.HorarioAula
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.HorarioAula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns.SituacaoAula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AulaCommandRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AulaQueryRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AulaCommandRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query.AulaQueryRepository;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase.GerarCalendarioProximosDias;
 
 @Component
 public class GerarAulas{
 	
-	private final Long diasNoFuturo = 15L;
-		
+	private final Long diasNoFuturo = 5L;
+	
+	@Autowired
 	private AulaCommandRepository aulaCommandRepository;
 	
+	@Autowired
 	private AulaQueryRepository aulaQueryRepository;
 	
 	private HorarioAulaQuery horarioAulaQuery;
@@ -29,10 +31,10 @@ public class GerarAulas{
 	@Autowired
 	private GerarCalendarioProximosDias gerarCalendarioProximosDias;
 	
-	public GerarAulas(AulaCommandRepository aulaCommandRepository, AulaQueryRepository aulaQueryRepository) {
-		this.aulaCommandRepository = aulaCommandRepository;
-		this.aulaQueryRepository = aulaQueryRepository;
-	}
+//	public GerarAulas(AulaCommandRepository aulaCommandRepository, AulaQueryRepository aulaQueryRepository) {
+//		this.aulaCommandRepository = aulaCommandRepository;
+//		this.aulaQueryRepository = aulaQueryRepository;
+//	}
 	
 	
 	public void executar() {
@@ -88,7 +90,7 @@ public class GerarAulas{
 		
 		List<Aula> aulasDoDia = aulaQueryRepository.buscarAulasPorData(dataFutura);
 		
-		while(aulasDoDia.isEmpty()){
+		while(aulasDoDia.isEmpty() && diasNoFuturoLocal != 0L){
 			
 			listaDeDatasSemAula.add(dataFutura);
 			
