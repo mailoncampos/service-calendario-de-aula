@@ -1,4 +1,4 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns;
 
 public enum DiaSemana {
 	

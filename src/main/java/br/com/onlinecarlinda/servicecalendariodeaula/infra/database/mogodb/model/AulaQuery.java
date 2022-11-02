@@ -15,11 +15,11 @@ import lombok.Getter;
 public class AulaQuery {
 	
 	@Id
-	private Long idMongoDB;
+	private String idMongoDB;
 	
 	private Long idAula;
 
-	protected LocalDate dataAula;
+	private LocalDate dataAula;
 	
 	private String statusAula;
 

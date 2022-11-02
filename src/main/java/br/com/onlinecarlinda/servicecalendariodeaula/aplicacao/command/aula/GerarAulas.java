@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.query.HorarioAulaQuery;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.HorarioAula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns.SituacaoAula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AulaCommandRepository;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query.AulaQueryRepository;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase.GerarCalendarioProximosDias;
@@ -31,11 +29,6 @@ public class GerarAulas{
 	@Autowired
 	private GerarCalendarioProximosDias gerarCalendarioProximosDias;
 	
-//	public GerarAulas(AulaCommandRepository aulaCommandRepository, AulaQueryRepository aulaQueryRepository) {
-//		this.aulaCommandRepository = aulaCommandRepository;
-//		this.aulaQueryRepository = aulaQueryRepository;
-//	}
-	
 	
 	public void executar() {
 		
@@ -54,21 +47,21 @@ public class GerarAulas{
 			
 			List<Aula> aulas = new ArrayList<Aula>();
 			
-			List<HorarioAula> horariosAulaDoDia = horarioAulaQuery.buscarHorariosPorData(auxDate);			
+//			List<HorarioAula> horariosAulaDoDia = horarioAulaQuery.buscarHorariosPorData(auxDate);			
 			
-			
-			for(HorarioAula auxHorarioAula : horariosAulaDoDia){
-				/*
-				 * Buscar os alunos com aula marcada nesse horario
-				 * 
-				 * Buscar as estaçoes de aulas cadastradas no sistema
-				 * 
-				 */
-				aulas.add(new Aula().criar(auxDate, auxHorarioAula, SituacaoAula.AGENDADA));
-				
-			}
-			
-			gerarCalendarioProximosDias.gerar(aulas, auxDate);
+//			
+//			for(HorarioAula auxHorarioAula : horariosAulaDoDia){
+//				/*
+//				 * Buscar os alunos com aula marcada nesse horario
+//				 * 
+//				 * Buscar as estaçoes de aulas cadastradas no sistema
+//				 * 
+//				 */
+//				aulas.add(new Aula().criar(auxDate, auxHorarioAula, SituacaoAula.AGENDADA));
+//				
+//			}
+//			
+//			gerarCalendarioProximosDias.gerar(aulas, auxDate);
 			
 		}
 		

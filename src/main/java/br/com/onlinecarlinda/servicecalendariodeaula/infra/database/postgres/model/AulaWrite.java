@@ -19,7 +19,7 @@ import lombok.NonNull;
 @Table(schema = "dominio", name = "aula")
 @Getter
 @AllArgsConstructor
-public class AulaCommand implements Serializable{
+public class AulaWrite implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -34,7 +34,7 @@ public class AulaCommand implements Serializable{
 	
 	@NonNull
 	@JoinColumn(name = "id_horario_aula", referencedColumnName = "id")
-	private HorarioAulaModel  horarioAulaModel;
+	private HorarioAulaWrite  horarioAulaModel;
 	
 	
 //	@Column(name = "hora_fim")

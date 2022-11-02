@@ -10,14 +10,14 @@ import org.springframework.stereotype.Repository;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AulaCommandRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.infra.database.postgres.model.AulaCommand;
+import br.com.onlinecarlinda.servicecalendariodeaula.infra.database.postgres.model.AulaWrite;
 
 @Repository
-public interface AulaCommandJPA extends JpaRepository<AulaCommand, Long>, AulaCommandRepository{
+public interface AulaJpaWrite extends JpaRepository<AulaWrite, Long>, AulaCommandRepository{
 
 	
-	@Query("SELECT a FROM AulaCommand a WHERE a.dataAula = :data")
-	List<AulaCommand> buscarAulasPorDataQuery(LocalDate data);
+	@Query("SELECT a FROM AulaWrite a WHERE a.dataAula = :data")
+	List<AulaWrite> buscarAulasPorDataQuery(LocalDate data);
 	
 	@Override
 	default void gerarAulasDoDia(List<Aula> aulasDia, LocalDate data) {

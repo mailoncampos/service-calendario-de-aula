@@ -1,12 +1,18 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo;
 
 import java.time.LocalTime;
 
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns.DiaSemana;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class HorarioAula {
 	
+	private Long id;
 	
 	private LocalTime horaInicio;
 	
@@ -14,8 +20,6 @@ public class HorarioAula {
 	
 	private String diaSemana;
 	
-	public HorarioAula() {	
-	}
 	
 	public HorarioAula criar(LocalTime horaInicio, LocalTime horaFim, String diaSemana) {
 		

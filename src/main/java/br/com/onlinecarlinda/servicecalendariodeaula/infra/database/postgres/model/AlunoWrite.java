@@ -17,7 +17,7 @@ import lombok.Getter;
 @Table(schema = "dominio", name = "aluno")
 @AllArgsConstructor
 @Getter
-public class AlunoCommand implements Serializable{
+public class AlunoWrite implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	

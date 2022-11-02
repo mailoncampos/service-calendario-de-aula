@@ -19,7 +19,7 @@ public class GeraCalendarioAula {
 	@Scheduled(cron = CRON)
 	private void observerScheduling() {
 		
-		gerarAulas.executar();
+//		gerarAulas.executar();
 	}
 
 }

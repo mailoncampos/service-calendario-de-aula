@@ -1,7 +1,7 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.vo;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.HorarioAula;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo.HorarioAula;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

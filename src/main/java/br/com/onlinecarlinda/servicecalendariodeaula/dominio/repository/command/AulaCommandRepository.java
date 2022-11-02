@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
 
-@Repository("AulaCommandRepository")
+@Repository
 public interface AulaCommandRepository {
 	
 	void gerarAulasDoDia(List<Aula> aulasDia, LocalDate data);

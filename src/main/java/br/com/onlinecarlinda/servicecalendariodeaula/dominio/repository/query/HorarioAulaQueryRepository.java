@@ -1,12 +1,15 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query;
 
-import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.HorarioAula;
+import org.springframework.stereotype.Repository;
 
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo.HorarioAula;
+
+@Repository
 public interface HorarioAulaQueryRepository {
 
-	List<HorarioAula> buscarHorariosPorData(LocalDate data);
+	List<HorarioAula> buscarHorariosConcorrente(LocalTime horaInicio, LocalTime horaFim, String diaSemana);
 
 }

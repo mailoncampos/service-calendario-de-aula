@@ -4,7 +4,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
 
-@Repository("AlunoCommandRepository")
+@Repository
 public interface AlunoCommandRepository {
 	
 	void adicionar(Aluno aluno);

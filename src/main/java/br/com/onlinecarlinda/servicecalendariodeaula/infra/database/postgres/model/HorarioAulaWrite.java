@@ -10,16 +10,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.HorarioAulaFactory;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo.HorarioAula;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
 @Entity
 @Table(schema = "dominio", name = "horario_aula")
 @Getter
 @AllArgsConstructor
-public class HorarioAulaModel implements Serializable{
+@NoArgsConstructor
+public class HorarioAulaWrite implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -40,20 +42,21 @@ public class HorarioAulaModel implements Serializable{
 	@Column(name = "dia_semana")
 	private String diaSemana;
 	
-	public HorarioAulaModel(HorarioAulaFactory horarioAulaFactory) {
-		super();
-		this.horaInicio = horarioAulaFactory.getHorarioAula().getHoraInicio();
-		this.horaFim = horarioAulaFactory.getHorarioAula().getHoraFim();
-		this.diaSemana = horarioAulaFactory.getHorarioAula().getDiaSemana();	
-	}
-	
 
-	public HorarioAulaModel(@NonNull LocalTime horaInicio, @NonNull LocalTime horaFim,
+	public HorarioAulaWrite(@NonNull LocalTime horaInicio, @NonNull LocalTime horaFim,
 			@NonNull String diaSemana) {
 		super();
 		this.horaInicio = horaInicio;
 		this.horaFim = horaFim;
 		this.diaSemana = diaSemana;
+	}
+	
+	public HorarioAulaWrite criar(HorarioAula horario) {
+		return new HorarioAulaWrite(horario.getHoraInicio(), horario.getHoraFim(), horario.getDiaSemana());
+	}
+	
+	public HorarioAula criarHorarioAula() {
+		return new HorarioAula(id ,horaInicio, horaFim, diaSemana);
 	}
 	
 }
