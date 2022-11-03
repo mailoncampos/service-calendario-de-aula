@@ -10,6 +10,5 @@ import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo.Ho
 @Repository
 public interface HorarioAulaQueryRepository {
 
-	List<HorarioAula> buscarHorariosConcorrente(LocalTime horaInicio, LocalTime horaFim, String diaSemana);
 
 }

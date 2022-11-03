@@ -22,7 +22,7 @@ public class HorarioAula {
 	
 	
 	public HorarioAula criar(LocalTime horaInicio, LocalTime horaFim, String diaSemana) {
-		
+				
 		DiaSemana diaSemanaEnum = DiaSemana.valueOf(diaSemana);
 		
 		if(DiaSemana.DOMINGO.equals(diaSemanaEnum)) {

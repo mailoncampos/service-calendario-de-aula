@@ -1,7 +1,5 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command;
 
-import java.util.List;
-
 import org.apache.catalina.core.ApplicationContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -11,6 +9,7 @@ import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.HorarioAula
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.query.HorarioAulaQuery;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo.HorarioAula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase.HorarioAulaUserCase;
+import br.com.onlinecarlinda.servicecalendariodeaula.infra.exception.CalendarioAulaException;
 
 @Component
 public class CadastroHorarioAula extends HorarioAulaUserCase{
@@ -24,19 +23,19 @@ public class CadastroHorarioAula extends HorarioAulaUserCase{
 	private HorarioAulaQuery horarioAulaQuery;
 
 	
-	public void executa(HorarioAula horarioAula) throws Exception {
+	public HorarioAula executa(HorarioAula horarioAula) throws CalendarioAulaException {
 		
-		List<HorarioAula> horariosConcorrentes = horarioAulaQuery.buscarHorariosConcorrente(horarioAula.getHoraInicio(), horarioAula.getHoraFim(), horarioAula.getDiaSemana());
-		
-		if(!horariosConcorrentes.isEmpty()) {
-			throw new Exception();
+		try {			
+			horarioAula = cadastrar(horarioAula);
+			publisher.publishEvent(new HorarioAulaCadastradoEvent(horarioAula, horarioAula));
+		} catch (CalendarioAulaException e) {
+			e.printStackTrace();
+			return null;
+		}finally {
+			
 		}
 		
-		horarioAula = cadastrar(horarioAula);
-		
-		publisher.publishEvent(new HorarioAulaCadastradoEvent(horariosConcorrentes, horarioAula));
-//		eventFactory.getEventFactory(applicationContext);
-
+		return horarioAula;
 	}
 	
 	

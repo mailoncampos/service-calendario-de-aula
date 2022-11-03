@@ -12,16 +12,24 @@ import lombok.Getter;
 @AllArgsConstructor
 public class CadastrarHorarioAulaDto {
 	
-	@JsonFormat(pattern = "hh:MM", timezone = "America/Cuiaba")
+	@JsonFormat(pattern = "hh:MM")
 	private LocalTime horaInicio;
 	
-	@JsonFormat(pattern = "hh:MM", timezone = "America/Cuiaba")
+	@JsonFormat(pattern = "hh:MM")
 	private LocalTime horaFim;
 	
 	private String diaSemana;
 	
 	public HorarioAula criarHorarioAula() {
 		return new HorarioAula(null, horaInicio, horaFim, diaSemana);
+	}
+	
+	public CadastrarHorarioAulaDto parseHorarioAula(HorarioAula horarioAula) {
+		
+		this.horaInicio = LocalTime.of(horarioAula.getHoraInicio().getHour(), horarioAula.getHoraInicio().getMinute());
+		this.horaFim = LocalTime.of(horarioAula.getHoraFim().getHour(), horarioAula.getHoraFim().getMinute());
+		this.diaSemana = horarioAula.getDiaSemana();
+		return this;
 	}
 	
 	

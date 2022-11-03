@@ -15,8 +15,4 @@ public class HorarioAulaQuery {
 	@Autowired
 	private HorarioAulaQueryRepository horarioAulaQueryRepository;
 
-	public List<HorarioAula> buscarHorariosConcorrente(LocalTime horaInicio, LocalTime horaFim, String diaSemana) {
-		return horarioAulaQueryRepository.buscarHorariosConcorrente(horaInicio, horaFim, diaSemana);
-	}
-
 }
