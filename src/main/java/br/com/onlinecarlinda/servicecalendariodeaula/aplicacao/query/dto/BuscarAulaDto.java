@@ -39,14 +39,14 @@ public class BuscarAulaDto extends HorarioAulaBuscarAlunoDto{
 		
 		List<BuscarAulaDto> aulasDoDiaDto = new ArrayList<BuscarAulaDto>();
 		
-		for(Aula auxAula : aulasDoDia) {
-			aulasDoDiaDto.add(new BuscarAulaDto(auxAula.getHorarioAula().getHoraInicio(), 
-					auxAula.getHorarioAula().getHoraFim(),  
-					auxAula.getHorarioAula().getDiaSemana(), 
-					auxAula.getDataAula(),
-					 auxAula.getStatusAula()										 
-					));
-		}
+//		for(Aula auxAula : aulasDoDia) {
+//			aulasDoDiaDto.add(new BuscarAulaDto(auxAula.getHorarioAula().getHoraInicio(), 
+//					auxAula.getHorarioAula().getHoraFim(),  
+//					auxAula.getHorarioAula().getDiaSemana(), 
+//					auxAula.getDataAula(),
+//					 auxAula.getStatusAula()										 
+//					));
+//		}
 		
 		return aulasDoDiaDto;
 	}

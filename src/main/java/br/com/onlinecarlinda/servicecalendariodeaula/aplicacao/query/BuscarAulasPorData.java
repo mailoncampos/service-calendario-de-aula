@@ -4,16 +4,15 @@ import java.time.LocalDate;
 import java.util.List;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.query.dto.BuscarAulaDto;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query.AulaQueryRepository;
 
 public class BuscarAulasPorData {
 	
-	private final AulaQueryRepository aulaQueryRepository;
-	
-	public BuscarAulasPorData(AulaQueryRepository aulaRepository) {
-		this.aulaQueryRepository = aulaRepository;
-	}
-	
+//	private final AulaQueryRepository aulaQueryRepository;
+//	
+//	public BuscarAulasPorData(AulaQueryRepository aulaRepository) {
+//		this.aulaQueryRepository = aulaRepository;
+//	}
+//	
 	public List<BuscarAulaDto> executa(LocalDate data) {
 		
 		

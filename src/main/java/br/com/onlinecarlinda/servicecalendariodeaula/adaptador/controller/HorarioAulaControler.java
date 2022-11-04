@@ -24,13 +24,14 @@ public class HorarioAulaControler {
 	public HttpStatus cadastrar(@RequestBody CadastrarHorarioAulaDto horarioAulaDto)
 			throws CalendarioAulaException {
 
-		try {
-			horarioAulaDto.parseHorarioAula(cadastroHorarioAula.executa(horarioAulaDto.criarHorarioAula()));
-			return HttpStatus.CREATED;
-		} catch (CalendarioAulaException e) {
-			e.printStackTrace();
-			return HttpStatus.ALREADY_REPORTED;
-		}
+//		try {
+//			horarioAulaDto.parseHorarioAula(cadastroHorarioAula.executa(horarioAulaDto.criarHorarioAula()));
+//			return HttpStatus.CREATED;
+//		} catch (CalendarioAulaException e) {
+//			e.printStackTrace();
+//			return HttpStatus.ALREADY_REPORTED;
+//		}
+	return null;
 	}
-
+	
 }

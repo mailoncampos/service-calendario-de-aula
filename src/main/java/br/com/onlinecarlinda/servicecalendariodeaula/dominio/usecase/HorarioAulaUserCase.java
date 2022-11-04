@@ -1,20 +1,38 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.vo.HorarioAula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.HorarioAulaCommandRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.infra.exception.CalendarioAulaException;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.HorarioAula;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.HorarioAulaRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase.event.HorarioAulaEvent;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase.event.enuns.TipoEventoHorarioAula;
 
 @Component
 public class HorarioAulaUserCase {
 	
 	@Autowired
-	private HorarioAulaCommandRepository horarioAulaWrite;		
+	private HorarioAulaRepository horarioAulaWrite;	
+	
+	private ApplicationEventPublisher publisher;
+	
+//	private EventFactory objectEvent;
 		
-	public HorarioAula cadastrar(HorarioAula horarioAula) throws CalendarioAulaException{
-		return horarioAulaWrite.cadastrar(horarioAula);
+	public void cadastrar(HorarioAula horarioAula){
+		
+		
+		try {
+			
+			horarioAulaWrite.cadastrar(horarioAula);
+			publisher.publishEvent( new HorarioAulaEvent(this, horarioAula, TipoEventoHorarioAula.CADASTRADO));
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			
+		}
+		
 	}
 
 }

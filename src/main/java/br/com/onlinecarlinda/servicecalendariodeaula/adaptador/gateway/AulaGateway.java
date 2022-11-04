@@ -4,8 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.command.AulaCommandRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.query.AulaQueryRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.repository.AulaRepository;
 import lombok.Getter;
 
 @Getter
@@ -15,9 +14,8 @@ public class AulaGateway {
 	private Aula aula;
 	
 	@Autowired
-	private AulaCommandRepository aulaCommandRepository;
+	private AulaRepository aulaCommandRepository;
 	
-	@Autowired
-	private AulaQueryRepository aulaQueryRepository;
+
 	
 }
