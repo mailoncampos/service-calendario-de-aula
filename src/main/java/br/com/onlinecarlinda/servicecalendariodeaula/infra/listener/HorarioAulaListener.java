@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.usecase.event.HorarioAulaEvent;
-import br.com.onlinecarlinda.servicecalendariodeaula.infra.database.query.HorarioAulaJpaRead;
-import br.com.onlinecarlinda.servicecalendariodeaula.infra.database.query.HorarioAulaRead;
+import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.HorarioAulaEvent;
+import br.com.onlinecarlinda.servicecalendariodeaula.infra.query.model.HorarioAulaRead;
+import br.com.onlinecarlinda.servicecalendariodeaula.infra.query.repository.HorarioAulaJpaRead;
 
 @Component
 public class HorarioAulaListener {

@@ -3,7 +3,7 @@ package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.vo;
 import java.util.ArrayList;
 import java.util.List;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.HorarioAula;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,7 +13,7 @@ public class HorariosAulaAlunoVo {
 	
 	private Long idHorario;
 	
-	public List<HorariosAulaAlunoVo> validarHorariosDeAula(List<HorarioAula> horariosAula){
+	public List<HorariosAulaAlunoVo> validarHorariosDeAula(List<Horario> horariosAula){
 		
 		if (horariosAula == null || horariosAula.isEmpty()) {
 			throw new RuntimeException("Um aluno deve ter obrigatoriamente ao menos um horário de aula");
@@ -29,7 +29,7 @@ public class HorariosAulaAlunoVo {
 		
 		
 		
-		for(HorarioAula auxHorarioAula : horariosAula) {
+		for(Horario auxHorarioAula : horariosAula) {
 			
 		}
 		return null;
