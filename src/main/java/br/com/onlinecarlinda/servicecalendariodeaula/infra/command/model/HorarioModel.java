@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -57,8 +57,8 @@ public class HorarioModel implements Serializable {
 		this.horaInicio = horario.getHoraInicio();
 		this.horaConclusao = horario.getHoraConclusao();
 		this.dia = horario.getDia().toString();
-		this.nomeModelo = horario.getModeloHorario().getNome();
-		this.estadoModelo = horario.getModeloHorario().getEstadoModelo().toString();
+//		this.nomeModelo = horario.getModeloHorario().getNome();
+//		this.estadoModelo = horario.getModeloHorario().getEstadoModelo().toString();
 		return this;
 	}
 

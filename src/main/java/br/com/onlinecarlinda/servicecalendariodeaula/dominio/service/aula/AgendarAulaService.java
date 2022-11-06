@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.AndamentoAula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.AulaRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Dia;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns.AndamentoAula;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Dia;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.Sala;
 
 @Service
@@ -33,8 +33,7 @@ public class AgendarAulaService {
 
 		data = LocalDate.now();
 
-		if (sala.getIdHorarios().isEmpty())
-			return;
+		
 
 		listarEOrdenarHorariosSala(sala);
 
@@ -86,31 +85,31 @@ public class AgendarAulaService {
 		List<Horario> horariosComAulas = new ArrayList<>();
 		List<Horario> horariosSemAulas = new ArrayList<>();
 
-		for (Horario horario : this.horariosDoDia) {
-			for (Aula aula : aulasDoDia) {
-				if (aula.getIdHorario().equals(horario.getIdHorario())) {
-					horariosComAulas.add(horario);
-					break;
-				}
-
-			}
-		}
+//		for (Horario horario : this.horariosDoDia) {
+//			for (Aula aula : aulasDoDia) {
+//				if (aula.getIdHorario().equals(horario.getIdHorario())) {
+//					horariosComAulas.add(horario);
+//					break;
+//				}
+//
+//			}
+//		}
 
 		if (horariosComAulas.size() == this.horariosDoDia.size())
 			return horariosSemAulas;
 
-		for (Horario horario : this.horariosDoDia) {
-			boolean flag = true;
-			for (Horario horarioComAula : horariosComAulas) {
-				if (horario.getIdHorario().equals(horarioComAula.getIdHorario())) {
-					flag = false;
-					break;
-				}
-			}
-
-			if (flag == true)
-				horariosSemAulas.add(horario);
-		}
+//		for (Horario horario : this.horariosDoDia) {
+//			boolean flag = true;
+//			for (Horario horarioComAula : horariosComAulas) {
+//				if (horario.getIdHorario().equals(horarioComAula.getIdHorario())) {
+//					flag = false;
+//					break;
+//				}
+//			}
+//
+//			if (flag == true)
+//				horariosSemAulas.add(horario);
+//		}
 		return horariosSemAulas;
 	}
 
@@ -118,10 +117,10 @@ public class AgendarAulaService {
 
 		this.aulas = aulaRepository.buscarAulasPorAndamentoESala(AndamentoAula.AGENDADA.toString(), sala.getIdSala());
 
-		aulas.forEach((aula) -> {
-			horarios.add(new Horario(aula.getIdHorario(), aula.getHoraInicio(), aula.getHoraConclusao(), aula.getDia(),
-					null));
-		});
+//		aulas.forEach((aula) -> {
+//			horarios.add(new Horario(aula.getIdHorario(), aula.getHoraInicio(), aula.getHoraConclusao(), aula.getDia(),
+//					null));
+//		});
 
 	}
 

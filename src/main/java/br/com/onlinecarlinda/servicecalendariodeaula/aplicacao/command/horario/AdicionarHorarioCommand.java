@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.HorarioAulaEvent;
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.TipoEventoHorario;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.service.HorarioService;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.service.GradeHorarioService;
 
 @Service
 public class AdicionarHorarioCommand{
 	
 	@Autowired
-	private HorarioService horarioService;
+	private GradeHorarioService horarioService;
 	
 	@Autowired
 	private ApplicationEventPublisher publisher;

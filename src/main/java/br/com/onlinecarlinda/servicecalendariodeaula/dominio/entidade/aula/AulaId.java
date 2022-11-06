@@ -1,10 +1,10 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula;
 
-public enum AndamentoAula {
+import lombok.Getter;
+
+@Getter
+public class AulaId {
 	
-	AGENDADA,
-	CONCLUIDA,
-	CANCELADA;
-	
+	private Long idAula;
 
 }

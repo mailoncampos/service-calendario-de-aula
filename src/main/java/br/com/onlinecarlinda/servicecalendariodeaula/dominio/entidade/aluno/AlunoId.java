@@ -1,6 +1,10 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno;
 
-public interface AlunoFactory {
+import lombok.Getter;
+
+@Getter
+public class AlunoId {
 	
-	
+	private Long idAluno;
+
 }

@@ -8,13 +8,14 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.HorarioRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.GradeHorarioRepository;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.GradeHorarios;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
 import br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model.HorarioModel;
 import br.com.onlinecarlinda.servicecalendariodeaula.infra.exception.CalendarioAulaException;
 
 @Repository
-public interface HorarioCommandRepository extends JpaRepository<HorarioModel, Long>, HorarioRepository {
+public interface HorarioCommandRepository extends JpaRepository<HorarioModel, Long>, GradeHorarioRepository {
 	
 	
 	@Override
@@ -31,7 +32,7 @@ public interface HorarioCommandRepository extends JpaRepository<HorarioModel, Lo
 	}
 	
 	@Override
-	default List<Horario> buscarHorariosPorNomeModeloHorario(String nome) {
+	default GradeHorarios buscarGradeHorariosPorNome(String nome) {
 
 		List<Horario> horarios = new ArrayList<>();
 		
@@ -43,7 +44,7 @@ public interface HorarioCommandRepository extends JpaRepository<HorarioModel, Lo
 			});
 		}
 		
-		return horarios;
+		return null;
 	}
 	
 	@Query("SELECT ha FROM HorarioModel ha WHERE ha.nomeModelo = :nome")

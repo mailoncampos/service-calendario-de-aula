@@ -23,10 +23,10 @@ public class AulaService {
 
 	public void agendarAula() {
 
-		List<Sala> salas = salaService.buscarTodas();
-		
-		if(salas != null && !salas.isEmpty())
-			salas.stream().forEach((sala) -> {agendarAulaService.agendarAulaPorSala(sala);});
+//		List<Sala> salas = salaService.buscarTodas();
+//		
+//		if(salas != null && !salas.isEmpty())
+//			salas.stream().forEach((sala) -> {agendarAulaService.agendarAulaPorSala(sala);});
 			
 		
 	}

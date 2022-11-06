@@ -21,8 +21,8 @@ public class HorarioController {
 	@PostMapping
 	public HttpStatus cadastrar(@RequestBody AdicionarHorarioDto horarioDto) throws CalendarioAulaException {
 
-		return adicionarHorario.executa(horarioDto.criarHorario());
-
+//		return adicionarHorario.executa(horarioDto.criarHorario());
+		return null;
 	}
 
 }

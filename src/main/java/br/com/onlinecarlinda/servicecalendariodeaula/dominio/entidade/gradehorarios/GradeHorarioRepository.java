@@ -1,11 +1,9 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario;
-
-import java.util.List;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios;
 
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface HorarioRepository {
+public interface GradeHorarioRepository {
 	
 	void adicionarOuModificarHorario(Horario horario);
 		
@@ -13,6 +11,6 @@ public interface HorarioRepository {
 	
 //	Horario buscarHorarioPorId(Long idHorario);
 	
-	List<Horario> buscarHorariosPorNomeModeloHorario(String nome);
+	GradeHorarios buscarGradeHorariosPorNome(String nome);
 
 }

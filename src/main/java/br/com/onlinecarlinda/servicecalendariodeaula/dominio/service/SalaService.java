@@ -6,12 +6,11 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.estacaoestudo.EstacaoEstudo;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.EstadoModelo;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.estacaoestudo.EstacaoEstudoId;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.GradeHorarios;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.GradeHorariosSala;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.Sala;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.SalaRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.infra.exception.CalendarioAulaException;
 
 @Service
 public class SalaService {
@@ -20,34 +19,28 @@ public class SalaService {
 	private SalaRepository salaRepository;
 
 	@Autowired
-	private HorarioService horarioService;
+	private GradeHorarioService gradeHorarioService;
+	
+	public void cadastarSala(String nome, String nomeGradeHorario ,List<Long> idsEstacoes) {
+		
+		List<EstacaoEstudoId> estacao = new ArrayList<>();
+		GradeHorariosSala gradeSala = new GradeHorariosSala();// gradeHorarioService.buscarGradeHorariosPorNome(nomeGradeHorario);
+		Sala sala = new Sala();
+		
+		if(idsEstacoes != null && !idsEstacoes.isEmpty())
+			idsEstacoes.stream().forEach((idEstacao) -> {estacao.add( new EstacaoEstudoId(idEstacao)) ;}); // validar estaçoes
 
-	@Autowired
-	private EstacaoEstudoService estacaoEstudoService;
-
-	public void cadastarSala(Sala sala, String nomeModeloHorario) {
-
-		List<Horario> horarios = new ArrayList<Horario>();
-		if (nomeModeloHorario != null) {
-			horarios = horarioService.buscarHorariosPorNomeModeloHorario(nomeModeloHorario);
-			if(horarios.isEmpty()) {
-				throw new CalendarioAulaException("Erro ao carregar os horários referente ao nome do modelo informado");
-			}
-			horarios.stream().forEach((a) -> {
-					if(!a.getModeloHorario().getEstadoModelo().equals(EstadoModelo.DISPONIVEL))
-						throw new CalendarioAulaException("Modelo de horario semanal indisponivel");
-					sala.getIdHorarios().add(a.getIdHorario()); 
-				});
+		GradeHorarios grade =  gradeHorarioService.buscarGradeHorariosPorNome(nomeGradeHorario);
+		
+		List<Long> idsHorario = new ArrayList<>();
+		
+		if(grade != null) {
+			grade.getHorarios().stream().forEach((idHorario) -> { idsHorario.add(idHorario.getIdHorario());});
+			gradeSala.cadastrarGradeHorariosJuntoASala(grade.getNome(),idsHorario);
 		}
-
-		List<EstacaoEstudo> estacoes = new ArrayList<EstacaoEstudo>();
-		if (!sala.getIdEstacoes().isEmpty()) {
-			estacoes = estacaoEstudoService.buscarEstacoesEstudoPorIds(sala.getIdEstacoes());
-			if (sala.getIdEstacoes().size() != estacoes.size())
-				throw new CalendarioAulaException("Erro ao carregar as estações de estudo");
-		}
-
-		salaRepository.adicionarOuModificarSala(sala.cadastrarSala(sala.getNome(), sala.getIdEstacoes(), sala.getIdHorarios()));
+		
+		sala.cadastrarSala(nome, estacao, gradeSala);
+		salaRepository.adicionarOuModificarSala(sala);
 	}
 	
 	public List<Sala> buscarTodas(){

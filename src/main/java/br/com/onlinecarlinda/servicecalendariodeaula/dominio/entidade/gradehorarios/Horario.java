@@ -1,4 +1,4 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios;
 
 import java.time.LocalTime;
 
@@ -19,13 +19,10 @@ public class Horario {
 	private LocalTime horaConclusao;
 
 	private Dia dia;
+	
+	public Horario adicionarHorario(LocalTime horaInicio, LocalTime horaConclusao, String dia) {
 
-	private ModeloHorario modeloHorario;
-
-
-	public Horario adicionarHorario(LocalTime horaInicio, LocalTime horaConclusao, String dia, String nomeModelo) {
-
-		if (horaInicio == null || horaConclusao == null || dia == null || modeloHorario == null) {
+		if (horaInicio == null || horaConclusao == null || dia == null) {
 			throw new IllegalArgumentException("Para adicionar um horário é necessaario preencher todos os campos");
 		}
 
@@ -36,17 +33,12 @@ public class Horario {
 		this.horaInicio = horaInicio;
 		this.horaConclusao = horaConclusao;
 		this.dia = Dia.toEnum(dia);
-		this.modeloHorario = new ModeloHorario(nomeModelo, EstadoModelo.EM_DESENVOLVIMENTO);
 		return this;
 	}
 
-//	public void removerHorario() {
-//		
-//	}
-//	
-//	public void modificarHorario() {
-//		
-//	}
+	public void removerHorario(Long idHorario) {
+		
+	}
 
 //	public Horario criar(LocalTime horaInicio, LocalTime horaFim, String diaSemana, Long modeloHorarioSemanal) {
 //				
@@ -80,7 +72,6 @@ public class Horario {
 		this.horaInicio = horaInicio;
 		this.horaConclusao = horaConclusao;
 		this.dia = Dia.valueOf(dia);
-		this.modeloHorario = new ModeloHorario(nomeModelo, EstadoModelo.EM_DESENVOLVIMENTO);
 		return this;
 	}
 

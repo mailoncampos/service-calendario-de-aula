@@ -2,17 +2,25 @@ package br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.Setter;
 
 @Entity
 @Table(schema = "dominio", name = "aula")
@@ -24,6 +32,7 @@ public class AulaModel implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Setter
 	@Column
 	private Long id;
 
@@ -31,22 +40,39 @@ public class AulaModel implements Serializable{
 	@Column(name = "data_aula")
 	private LocalDate dataAula;
 	
-//	@NonNull
-//	@JoinColumn(name = "id_horario_aula", referencedColumnName = "id")
-//	private HorarioAulaCommand  horarioAulaModel;
+	@ManyToOne
+	@JoinColumn(name = "id_horario", referencedColumnName = "id")
+	private HorarioModel horarioModel;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_sala")
+	private SalaModel salaModel;
 	
-//	@Column(name = "hora_fim")
-//	private List<EstacaoEstudoModel>  estacaoEstudos;
+	@ManyToOne
+	@JoinColumn(name = "id_professor")
+	protected ProfessorModel professorModel;
 	
-//	@Column(name = "hora_fim")
-//	protected List<Aluno> alunos;
+	@Column(name = "andamento_aula")
+	private String andamentoAula;
 	
-	@Column(name = "status_aula")
-	protected String statusAula;
+	@ManyToMany
+	@JoinTable(schema = "dominio", name = "horarios_sala", 
+	joinColumns = { 
+			@JoinColumn(name = "id_sala")
+			},
+	inverseJoinColumns = {
+			@JoinColumn(name = "id_horario") 
+			})
+	private List<HorarioModel> horarios = new ArrayList<>();
 	
-//	public Aula criarAula() {
-//		return new Aula(id, dataAula, null, null, statusAula, id, null, null, id, null);
-//	}
+	public AulaModel agendarAula(Aula aula) {
+		
+		this.id = aula.getIdAula();
+		this.dataAula = aula.getData();
+//		this.salaModel = new SalaModel().setId(aula.getIdSalaAula());;
+//		this.professorModel = new ProfessorModel().setId(aula.getIdProfessor());;
+		
+		return this;
+	}
 
 }

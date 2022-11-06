@@ -1,7 +1,6 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model;
 
 import java.io.Serializable;
-import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,27 +11,30 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @Entity
-@Table(schema = "dominio", name = "aluno")
-@AllArgsConstructor
+@Table(schema = "dominio", name = "professor")
 @Getter
-public class AlunoWrite implements Serializable{
-	
+@AllArgsConstructor
+@NoArgsConstructor
+public class ProfessorModel implements Serializable {
+
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_aluno")
-	private Long idAluno;
-	
+	@Column
+	private Long id;
+
+	@NonNull
 	@Column
 	private String nome;
-
-	@Column(name = "data_nascimento")
-	private LocalDate dataNascimento;
-
-	@Column
-	private String cpf;
+	
+	public ProfessorModel setId(Long id) {
+		this.id = id;
+		return this;
+	}
 
 }

@@ -1,10 +1,10 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.enuns.SituacaoAluno;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.vo.AulaAlunoVo;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.vo.HorariosAulaAlunoVo;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.HorarioId;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.vo.CPF;
 import lombok.Getter;
 
@@ -15,25 +15,28 @@ public class Aluno {
 		
 	private CPF cpf;
 	
-	private List<HorariosAulaAlunoVo> horariosAulavo;
+	private List<Contrato> contratos = new ArrayList<>();
 	
-	private List<AulaAlunoVo> aulas;
+	private List<AulaAluno> aulas = new ArrayList<>();
+
+	private List<HorarioId> horarios = new ArrayList<>();
 	
 	private SituacaoAluno situacaoAluno;
-
-	public Aluno(String nome, String usuario, String status) {
+	
+	public void registrarAlunoMatriculado(String nome, String cpf, Contrato contrato) {
 		
-//		StatusAluno statusEnum =  StatusAluno.valueOf(status);
-			
+		if(this.horarios.isEmpty())
+			this.horarios = contrato.getHorarios();
+		
 		this.nome = nome;
+		this.cpf = new CPF().stringToCpfValido(cpf);
+//		this.contratos
+//		this.aulas
+//		this.situacaoAluno
 	}
 	
-	public Aluno(String usuario) {
-	
-	}
-
-	public Aluno() {
-		super();
+	public void concluirContrato() {
+		
 	}
 	
 	

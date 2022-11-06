@@ -1,4 +1,4 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios;
 
 import java.time.LocalDate;
 

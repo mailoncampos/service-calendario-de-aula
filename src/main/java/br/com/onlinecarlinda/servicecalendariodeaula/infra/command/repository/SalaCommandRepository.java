@@ -25,10 +25,7 @@ public interface SalaCommandRepository extends JpaRepository<SalaModel, Long>, S
 
 		List<SalaModel> salasModel = findAll();
 		
-		if(!salasModel.isEmpty())
-			salasModel.stream().forEach((sala) -> {
-				salas.add(new SalaModel().parseModelToSala());
-			});
+	
 		
 		return salas;
 	}

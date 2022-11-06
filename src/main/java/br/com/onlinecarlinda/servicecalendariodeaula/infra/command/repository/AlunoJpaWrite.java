@@ -5,10 +5,10 @@ import org.springframework.stereotype.Repository;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.AlunoCommandRepository;
-import br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model.AlunoWrite;
+import br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model.AlunoModel;
 
 @Repository
-public interface AlunoJpaWrite extends JpaRepository<AlunoWrite, Long>, AlunoCommandRepository{
+public interface AlunoJpaWrite extends JpaRepository<AlunoModel, Long>, AlunoCommandRepository{
 
 	default AlunoCommandRepository getAlunoCommandRepository() {
 		return this;

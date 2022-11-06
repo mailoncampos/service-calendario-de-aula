@@ -2,7 +2,7 @@ package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event;
 
 import org.springframework.context.ApplicationEvent;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
 import lombok.Getter;
 
 @Getter

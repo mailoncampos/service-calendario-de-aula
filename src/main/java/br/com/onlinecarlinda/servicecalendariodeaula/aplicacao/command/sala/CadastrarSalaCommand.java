@@ -1,5 +1,7 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command.sala;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -7,7 +9,6 @@ import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.Evento;
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.PayloadEvento;
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.PublicadorEvento;
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.TipoEvento;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.Sala;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.service.SalaService;
 
 @Service
@@ -23,21 +24,23 @@ public class CadastrarSalaCommand {
 	
 	private String mensagem;
 	
-	public String executa(Sala sala, String nomeModelo) {
+	public String executa(String nome, String nomeGradeHorario, List<Long> idsEstacoes) {
 		
 		
 		
 		try {
 			
-			salaService.cadastarSala(sala, nomeModelo);
+			salaService.cadastarSala(nome, nomeGradeHorario, idsEstacoes);
 			
-			this.evento = new Evento(this, new PayloadEvento("mailon", "192.198.5.17", TipoEvento.INSERSAO), sala);
+			this.evento = new Evento(this, new PayloadEvento("mailon", "192.198.5.17", TipoEvento.INSERSAO));
 			mensagem = "Sala Cadastrada";
 		} catch (Exception e) {
+			e.printStackTrace();
 			mensagem = e.getMessage();
-			this.evento = new Evento(this, new PayloadEvento("mailon", "192.198.5.17", TipoEvento.ERRO), sala);
+			this.evento = new Evento(this, new PayloadEvento("mailon", "192.198.5.17", TipoEvento.ERRO));
 			
 		}finally {
+			
 			publisher.publish(evento);
 		}
 		

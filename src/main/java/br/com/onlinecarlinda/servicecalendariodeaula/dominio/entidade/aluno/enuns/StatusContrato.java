@@ -1,11 +1,9 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.enuns;
 
-public enum AndamentoAulaAluno {
+public enum StatusContrato {
 	
-	AGENDADA,
-	PRESENTE,
-	FALTOU,
-	REMARCADA,
-	CANCELADA;
+	VIGENTE,
+	CONCLUIDO,
+	ROMPIDO;
 
 }

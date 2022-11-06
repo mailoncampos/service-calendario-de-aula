@@ -3,58 +3,52 @@ package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala;
 import java.util.ArrayList;
 import java.util.List;
 
-import lombok.AllArgsConstructor;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.estacaoestudo.EstacaoEstudoId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Sala {
 
 	private Long idSala;
 
 	private String nome;
 
-	private List<Long> idEstacoes = new ArrayList<>();
+	private GradeHorariosSala gradeHorarioSemanal;
 
-	private List<Long> idHorarios = new ArrayList<>();
+	private List<EstacaoEstudoId> estacoesEstudo = new ArrayList<>();
 
-	public Sala cadastrarSala(String nome, List<Long> idEstacoes, List<Long> idHorarios) {
+	public Sala cadastrarSala(String nome, List<EstacaoEstudoId> estacoesEstudo,
+			GradeHorariosSala gradeHorarioSemanal) {
 
-		if (idEstacoes != null && !idEstacoes.isEmpty())
-			this.idEstacoes = idEstacoes;
-		else
-			this.idEstacoes = new ArrayList<Long>();
+		if (gradeHorarioSemanal != null && gradeHorarioSemanal.getIdGradeHorarario() != null
+				&& gradeHorarioSemanal.getIdGradeHorarario().getNomeGradeHorario() != null)
+			this.gradeHorarioSemanal = gradeHorarioSemanal;
 		
-		if (idHorarios != null && !idHorarios.isEmpty())
-			this.idHorarios = idHorarios;
-		else
-			this.idHorarios = new ArrayList<Long>();
+		if (estacoesEstudo != null && !estacoesEstudo.isEmpty())
+			this.estacoesEstudo = estacoesEstudo;
+		
 		
 		this.nome = validarNome(nome);
-		
 		return this;
-
 	}
 
-	public Sala adicionarEstacao(Long idEstacao) {
+	public Sala adicionarEstacao(EstacaoEstudoId estacãoEstudo) {
 
-		if (idEstacao == null)
+		if (estacãoEstudo == null || estacãoEstudo.getIdEstacao() == null)
 			throw new IllegalArgumentException("É necessario informar o id da estação de estudo");
 
-		this.idEstacoes.add(idEstacao);
+		this.estacoesEstudo.add(estacãoEstudo);
 		return this;
-
 	}
 
-	public Sala adicionarHorario(Long idHorario) {
+	public void alterarNome(String nome) {
+		this.nome = validarNome(nome);
+	}
 
-		if (idHorario == null)
-			throw new IllegalArgumentException("É necessario informar o id do horário");
-		
-		this.idHorarios.add(idHorario);
-		return this;
+	public void removerEstacao(Long idEstacaoEstudo) {
+
 	}
 
 	private String validarNome(String nome) {

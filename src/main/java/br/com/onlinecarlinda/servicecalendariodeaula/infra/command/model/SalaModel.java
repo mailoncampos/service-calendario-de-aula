@@ -56,30 +56,16 @@ public class SalaModel implements Serializable {
 	public SalaModel cadastrarSala(Sala sala) {
 
 		this.nome = sala.getNome();
-
-		if (sala.getIdEstacoes() != null && !sala.getIdEstacoes().isEmpty())
-			sala.getIdEstacoes().stream().forEach((a) -> {
-				this.estacoesEstudo.add(new EstacaoEstudoModel(a, null, null));
-			});
-
-		if (sala.getIdHorarios() != null && !sala.getIdHorarios().isEmpty())
-			sala.getIdHorarios().stream().forEach((a) -> {
-				this.horarios.add(new HorarioModel(a, null, null, null, null, null));
-			});
-
+		
+	
 		return this;
 	}
 	
-	public Sala parseModelToSala() {
-		
-		List<Long> idHorarios = new ArrayList<>();
-		
-		List<Long> idEstacoes = new ArrayList<>();
-		
-		this.horarios.stream().forEach((horario) -> {idHorarios.add(horario.getId());});
-		this.estacoesEstudo.stream().forEach((estacoes) -> {idEstacoes.add(estacoes.getId());});
-		
-		return new Sala(id, nome, idEstacoes, idHorarios);
+	public SalaModel setId(Long id) {
+		this.id = id;
+		return this;
 	}
+	
+
 
 }

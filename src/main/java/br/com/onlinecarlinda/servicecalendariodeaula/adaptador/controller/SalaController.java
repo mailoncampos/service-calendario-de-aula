@@ -21,7 +21,7 @@ public class SalaController {
 	@PostMapping
 	public ResponseEntity<String> cadastrarSala(@RequestBody CadastrarSalaDto cadastrarSalaDto){
 		
-		cadastrarSalaCommand.executa(cadastrarSalaDto.parseDtoToSala(), cadastrarSalaDto.getModeloHorario());
+		cadastrarSalaCommand.executa(cadastrarSalaDto.getNomeSala(), cadastrarSalaDto.getNomeGradeHorario(), cadastrarSalaDto.getIdEstacoes());
 		
 		return ResponseEntity.status(HttpStatus.OK).body("");
 	}

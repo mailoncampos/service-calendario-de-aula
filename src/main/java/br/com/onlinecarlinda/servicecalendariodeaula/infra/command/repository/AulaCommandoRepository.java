@@ -14,7 +14,7 @@ import br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model.AulaMod
 @Repository
 public interface AulaCommandoRepository extends JpaRepository<AulaModel, Long>, AulaRepository {
 
-	@Query("SELECT a FROM AulaWrite a WHERE a.dataAula = :data")
+	@Query("SELECT a FROM AulaModel a WHERE a.dataAula = :data")
 	List<AulaModel> buscarAulasPorDataQuery(LocalDate data);
 	
 	@Override
@@ -28,7 +28,7 @@ public interface AulaCommandoRepository extends JpaRepository<AulaModel, Long>, 
 		return null;
 	}
 
-	@Query("SELECT a FROM AulaModel a WHERE a.andamento LIKE :andamento AND a.id = :idSalaO")
+	@Query("SELECT a FROM AulaModel a WHERE a.andamentoAula LIKE :andamento AND a.id = :idSala")
 	List<Aula> buscarAulasModelPorAndamentoESala(String andamento, Long idSala);
 	
 }
