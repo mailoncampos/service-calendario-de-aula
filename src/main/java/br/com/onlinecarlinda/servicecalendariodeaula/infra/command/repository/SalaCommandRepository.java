@@ -15,6 +15,8 @@ public interface SalaCommandRepository extends JpaRepository<SalaModel, Long>, S
 
 	@Override
 	default void adicionarOuModificarSala(Sala sala) {		
+		
+		
 		save(new SalaModel().cadastrarSala(sala));
 	}
 	

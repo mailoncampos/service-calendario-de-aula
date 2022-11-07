@@ -3,7 +3,7 @@ package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula;
 import java.time.LocalTime;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Dia;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.HorarioId;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.HorarioId;
 import lombok.Getter;
 
 @Getter

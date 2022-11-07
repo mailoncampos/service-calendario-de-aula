@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.enuns.SituacaoAluno;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.HorarioId;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.HorarioId;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.vo.CPF;
 import lombok.Getter;
 

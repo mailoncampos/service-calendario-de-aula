@@ -3,9 +3,9 @@ package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehora
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface GradeHorarioRepository {
+public interface GradeHorariosRepository {
 	
-	void adicionarOuModificarHorario(Horario horario);
+	void adicionarOuModificarGradeHorarios(GradeHorarios gradeHorario);
 		
 //	void removerHorario(Long idHorario);
 	

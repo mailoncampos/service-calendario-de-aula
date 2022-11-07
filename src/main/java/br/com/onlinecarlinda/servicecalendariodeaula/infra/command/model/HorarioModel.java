@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,12 +39,6 @@ public class HorarioModel implements Serializable {
 	@Column
 	private String dia;
 
-	@Column(name = "nome_modelo")
-	private String nomeModelo;
-
-	@Column(name = "estado_modelo")
-	private String estadoModelo;
-
 	public HorarioModel(@NonNull LocalTime horaInicio, @NonNull LocalTime horaConclusao, @NonNull String dia) {
 		super();
 		this.horaInicio = horaInicio;
@@ -57,13 +51,12 @@ public class HorarioModel implements Serializable {
 		this.horaInicio = horario.getHoraInicio();
 		this.horaConclusao = horario.getHoraConclusao();
 		this.dia = horario.getDia().toString();
-//		this.nomeModelo = horario.getModeloHorario().getNome();
-//		this.estadoModelo = horario.getModeloHorario().getEstadoModelo().toString();
 		return this;
 	}
 
 	public Horario parseModelToHorario() {
-		return new Horario().criar(id, horaInicio, horaConclusao, dia, nomeModelo, estadoModelo);
+		return null;
+//		return new Horario().criar(id, horaInicio, horaConclusao, dia);
 	}
 
 }

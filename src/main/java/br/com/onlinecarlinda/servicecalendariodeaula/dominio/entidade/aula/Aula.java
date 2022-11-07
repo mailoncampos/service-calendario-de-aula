@@ -6,7 +6,7 @@ import java.util.List;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.Aluno;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns.AndamentoAula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.estacaoestudo.EstacaoEstudoId;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.professor.ProfessorId;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.Sala;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.SalaId;

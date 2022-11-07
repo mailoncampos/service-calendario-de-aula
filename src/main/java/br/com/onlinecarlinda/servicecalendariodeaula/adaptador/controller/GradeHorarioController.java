@@ -7,22 +7,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.adaptador.presenter.AdicionarHorarioDto;
-import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command.horario.AdicionarHorarioCommand;
+import br.com.onlinecarlinda.servicecalendariodeaula.adaptador.presenter.CriarGradeHorarioDto;
+import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command.gradehorario.CriarGradeHorarioCommand;
 import br.com.onlinecarlinda.servicecalendariodeaula.infra.exception.CalendarioAulaException;
 
 @RestController
 @RequestMapping("/horario-aula")
-public class HorarioController {
+public class GradeHorarioController {
 
 	@Autowired
-	private AdicionarHorarioCommand adicionarHorario;
+	private CriarGradeHorarioCommand criarGradeHorarioCommand;
 
 	@PostMapping
-	public HttpStatus cadastrar(@RequestBody AdicionarHorarioDto horarioDto) throws CalendarioAulaException {
+	public HttpStatus criarGradeHorarios(@RequestBody CriarGradeHorarioDto gradeHorarioDto) throws CalendarioAulaException {
 
-//		return adicionarHorario.executa(horarioDto.criarHorario());
-		return null;
+		return criarGradeHorarioCommand.executa(gradeHorarioDto.getNomeGradeHorario(), gradeHorarioDto.getHorarios());
 	}
 
 }

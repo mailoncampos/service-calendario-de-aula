@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aluno.enuns.StatusContrato;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.HorarioId;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.HorarioId;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

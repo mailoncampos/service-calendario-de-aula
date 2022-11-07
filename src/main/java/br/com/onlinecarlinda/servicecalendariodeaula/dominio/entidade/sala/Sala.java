@@ -19,7 +19,7 @@ public class Sala {
 
 	private List<EstacaoEstudoId> estacoesEstudo = new ArrayList<>();
 
-	public Sala cadastrarSala(String nome, List<EstacaoEstudoId> estacoesEstudo,
+	public void cadastrarSala(String nome, List<EstacaoEstudoId> estacoesEstudo,
 			GradeHorariosSala gradeHorarioSemanal) {
 
 		if (gradeHorarioSemanal != null && gradeHorarioSemanal.getIdGradeHorarario() != null
@@ -31,7 +31,6 @@ public class Sala {
 		
 		
 		this.nome = validarNome(nome);
-		return this;
 	}
 
 	public Sala adicionarEstacao(EstacaoEstudoId estacãoEstudo) {

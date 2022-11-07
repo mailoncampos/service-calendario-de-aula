@@ -2,6 +2,7 @@ package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehora
 
 import java.util.List;
 
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import lombok.Getter;
 
 @Getter
@@ -13,7 +14,13 @@ public class GradeHorarios {
 		
 	private EstadoGrade estadoGrade;
 	
-	public void criarGrade(String nomeGrade, String nomeModelo) {
+	public void criarGrade(String nomeGrade,  List<Horario> horarios) {
+		
+		if(nomeGrade == null)
+			throw new IllegalArgumentException("Nome da grade de horários não pode ser nulo");
+		
+		this.nome = nomeGrade;
+		this.horarios = horarios;
 		this.estadoGrade = EstadoGrade.EM_DESENVOLVIMENTO;
 	}
 	

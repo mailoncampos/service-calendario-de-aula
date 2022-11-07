@@ -1,4 +1,6 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command.horario;
+package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.command.gradehorario;
+
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -7,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.HorarioAulaEvent;
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.TipoEventoHorario;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.service.GradeHorarioService;
 
 @Service
-public class AdicionarHorarioCommand{
+public class CriarGradeHorarioCommand{
 	
 	@Autowired
 	private GradeHorarioService horarioService;
@@ -20,13 +22,13 @@ public class AdicionarHorarioCommand{
 	private ApplicationEventPublisher publisher;
 	
 	
-	public HttpStatus executa(Horario horario) {
+	public HttpStatus executa(String nomeGradeHorario, List<Horario> horarios) {
 		
 		try {
 
-			horarioService.adicionarHorario(horario);
+			horarioService.criarGradeHorario(nomeGradeHorario, horarios);
 			
-			HorarioAulaEvent event = new HorarioAulaEvent(this, horario, TipoEventoHorario.ADICIONADO);
+			HorarioAulaEvent event = new HorarioAulaEvent(this, horarios, TipoEventoHorario.ADICIONADO, "Cadastrado");
 			
 			
 			publisher.publishEvent(event);
@@ -35,7 +37,7 @@ public class AdicionarHorarioCommand{
 		}catch (RuntimeException e) {
 			e.printStackTrace();
 			
-			HorarioAulaEvent event = new HorarioAulaEvent(this, horario, TipoEventoHorario.ERRO, e.getMessage());
+			HorarioAulaEvent event = new HorarioAulaEvent(this, horarios, TipoEventoHorario.ERRO, e.getMessage());
 			publisher.publishEvent(event);
 			return HttpStatus.INTERNAL_SERVER_ERROR;
 			

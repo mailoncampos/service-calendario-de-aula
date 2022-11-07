@@ -1,4 +1,4 @@
-package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios;
+package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

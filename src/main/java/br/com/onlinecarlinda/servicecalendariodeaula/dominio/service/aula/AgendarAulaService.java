@@ -12,7 +12,7 @@ import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.Aula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.AulaRepository;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.aula.enuns.AndamentoAula;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Dia;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.sala.Sala;
 
 @Service

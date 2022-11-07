@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event.EventFactory;
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

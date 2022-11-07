@@ -1,8 +1,10 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.aplicacao.event;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationEvent;
 
-import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.Horario;
+import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
 import lombok.Getter;
 
 @Getter
@@ -16,7 +18,7 @@ public class HorarioAulaEvent extends ApplicationEvent implements EventFactory {
 	
 	private String mensagem;
 
-	public HorarioAulaEvent(Object source) {
+	public HorarioAulaEvent(Object source, List<Horario> horarios, TipoEventoHorario adicionado, String string) {
 		super(source);
 	}
 
