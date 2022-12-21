@@ -1,5 +1,6 @@
 package br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios;
 
+import java.time.LocalTime;
 import java.util.List;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Horario;
@@ -9,6 +10,10 @@ import lombok.Getter;
 public class GradeHorarios {
 	
 	private String nome;
+	
+	private LocalTime duracaoAula;
+	
+	private List<Intervalo> intervalos;
 	
 	private List<Horario> horarios;
 		

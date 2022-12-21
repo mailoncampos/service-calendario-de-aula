@@ -38,6 +38,12 @@ public class HorarioModel implements Serializable {
 
 	@Column
 	private String dia;
+	
+	@Column(name = "nome_modelo")
+	private String nomeModelo;
+
+	@Column(name = "estado_modelo")
+	private String estadoModelo;
 
 	public HorarioModel(@NonNull LocalTime horaInicio, @NonNull LocalTime horaConclusao, @NonNull String dia) {
 		super();

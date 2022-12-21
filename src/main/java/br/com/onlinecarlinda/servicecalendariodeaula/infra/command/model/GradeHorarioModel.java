@@ -7,8 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.gradehorarios.GradeHorarios;
 import lombok.AllArgsConstructor;
@@ -28,7 +28,7 @@ public class GradeHorarioModel implements Serializable {
 	@Column
 	private String nome;
 
-	
+	@Transient
 	private List<HorarioModel> horarios = new ArrayList<>();
 
 	public GradeHorarioModel criarGradeHorarios(GradeHorarios gradeHorarios) {

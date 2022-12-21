@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: calendario-de-aula
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/registry/eureka

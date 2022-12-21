@@ -15,7 +15,7 @@ public class Sala {
 
 	private String nome;
 
-	private GradeHorariosSala gradeHorarioSemanal;
+	private GradeHorariosSala gradeHorarioSala;
 
 	private List<EstacaoEstudoId> estacoesEstudo = new ArrayList<>();
 
@@ -24,7 +24,7 @@ public class Sala {
 
 		if (gradeHorarioSemanal != null && gradeHorarioSemanal.getIdGradeHorarario() != null
 				&& gradeHorarioSemanal.getIdGradeHorarario().getNomeGradeHorario() != null)
-			this.gradeHorarioSemanal = gradeHorarioSemanal;
+			this.gradeHorarioSala = gradeHorarioSemanal;
 		
 		if (estacoesEstudo != null && !estacoesEstudo.isEmpty())
 			this.estacoesEstudo = estacoesEstudo;

@@ -13,7 +13,7 @@ import br.com.onlinecarlinda.servicecalendariodeaula.dominio.entidade.horario.Ho
 import br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model.GradeHorarioModel;
 import br.com.onlinecarlinda.servicecalendariodeaula.infra.command.model.HorarioModel;
 
-@Repository
+//@Repository
 public interface GradeHorariosCommandRepository extends JpaRepository<GradeHorarioModel, Long>, GradeHorariosRepository {
 	
 	
